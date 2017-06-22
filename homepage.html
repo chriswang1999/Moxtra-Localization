@@ -47,7 +47,7 @@ div.tab button.active {
     border-top: none;
 }
 p {
-	font-size: 30px; 
+  font-size: 30px; 
 }
 /*from here onwards is the stuff for the dropbox*/ 
 input:-webkit-autofill {
@@ -572,12 +572,12 @@ ul:after { clear: both; }
 <title>Moxtra Localization</title>
 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href="public/html/css/styles.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
 
 </head>
 <body>
- <!-- code editing starts here--> 
-<p>Moxtra Localization</p>
+ 
+<p>Moxtra Localization Tool</p>
  
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Upload')">Upload</button>
@@ -602,7 +602,7 @@ ul:after { clear: both; }
 <script>
 function showButton()
     {
-      	document.getElementById("filedrop").style.visibility = "visible";
+        document.getElementById("filedrop").style.visibility = "visible";
     }
         
 function hideButton()
@@ -612,39 +612,39 @@ function hideButton()
 var gValue;
 var gVersion;
 function buttonPressed() {
-	console.log('button pressed!');
+  console.log('button pressed!');
 
 
-	var radios = document.getElementsByName('platform');
-	var value;
-	var version = document.getElementById("version").value;
-	for (var i = 0; i < radios.length; i++) {
-	    if (radios[i].type === 'radio' && radios[i].checked) {
-	        value = radios[i].value;     
-	        gValue = value;
-	        gVersion=version;
-	        console.log(gVersion);
-	        console.log(gValue);
-	        if(gValue != '' && gVersion != '')
-	        {
-	        	showButton();
-	        	    $('#buttton').fadeToggle();
-	    	}
-	    	else
-	    	{
-	    		hideButton();
-	    	}
-	    }
-	}
-	console.log("it hit here");
+  var radios = document.getElementsByName('platform');
+  var value;
+  var version = document.getElementById("version").value;
+  for (var i = 0; i < radios.length; i++) {
+      if (radios[i].type === 'radio' && radios[i].checked) {
+          value = radios[i].value;     
+          gValue = value;
+          gVersion=version;
+          console.log(gVersion);
+          console.log(gValue);
+          if(gValue != '' && gVersion != '')
+          {
+            showButton();
+                $('#buttton').fadeToggle();
+        }
+        else
+        {
+          hideButton();
+        }
+      }
+  }
+  console.log("it hit here");
 
-			var xmlhttp = new XMLHttpRequest();
-			var str = "fileinfo?version="+gVersion+",platform="+gValue
-			xmlhttp.open("Get",str,false);
-			console.log(str);
-			xmlhttp.send();
-			while(!xmlhttp.responseText){}
-			console.log(xmlhttp.responseText);
+      var xmlhttp = new XMLHttpRequest();
+      var str = "fileinfo?version="+gVersion+",platform="+gValue
+      xmlhttp.open("Get",str,false);
+      console.log(str);
+      xmlhttp.send();
+      while(!xmlhttp.responseText){}
+      console.log(xmlhttp.responseText);
 }
 </script>
   <div class="container">
@@ -652,13 +652,12 @@ function buttonPressed() {
       <div class="col-xs-12">
         <div class="panel panel-default">
           <div class="panel-body">
-          	<h2>Localization Terminology Trasmitter</h2>
             <form id = "filedrop" action = "/upload" class="dropzone">
-				
+        
         <div class="fallback">
-					<input name="file" type="file" multiple />
-				</div>
-			</form>
+          <input name="file" type="file" multiple />
+        </div>
+      </form>
         </ul>
       </li>
     </ul>
@@ -721,9 +720,9 @@ function buttonPressed() {
 <script>
 
 window.onload = function() {
-	    $('#buttton').toggle();
-	 $('#bartot').toggle();
-	hideButton();
+      $('#buttton').toggle();
+   $('#bartot').toggle();
+  hideButton();
   Dropzone.options.url = "localhost/uploads";
 
   Dropzone.options.filedrop = {
@@ -744,60 +743,52 @@ window.onload = function() {
 
 
 
+
+
+
+
 <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
 <script>
 </script>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script src="public/html/javascripts/upload.js"></script>
+<script src="javascripts/upload.js"></script>
  <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.6.0/dist/progressbar.js"></script>
   
-<script src="public/html/javascripts/dropzone.js"></script>
+<script src="javascripts/dropzone.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!--<iframe width="966" height="450" src="/public/html/transmitter.html"></iframe> iframe for the transmittor code. looks bad, use as last resort. -->
 </div>
 </div>
 </div>
- <!-- end of the Upload/dropdown code --> 
+
 <div id="Download" class="tabcontent">
-  <h3>Download</h3>
-  <p>Version</p>
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-  <p>Language</p>
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-  <p>Platform.</p> 
-</div>
+          <h3>Please select the version and langauge you wish to view or download.</h3>
+          <a class="toggle" onclick="toggleversion()">Select All Versions</a>
+          <ul id = "version_dropdown"></ul>
+          <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
+          <ul id = 'language_dropdown'></ul>
+      </div>
+
  
+
 <div id="Display" class="tabcontent">
-  <h3>Display</h3>
-  <p>Version</p>
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-<p>Language</p>
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-  <p>Platform.</p>
-</div>
+          <h3>Please select the version and langauge you wish to view or download.</h3>
+          <a class="toggle" onclick="toggleversion()">Select All Versions</a>
+          <ul id = "version_dropdown"></ul>
+          <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
+          <ul id = 'language_dropdown'></ul>
+      </div>
+
  
 <script>
+var languagesAvailable;
+var selectedLanguages=[];
+var versionsAvailable = [];
+var selectedVersions=[];
+var lans = "";
+var vrns = "";
+updateDynamicDropDowns();
 /* script for the tabs */
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -812,14 +803,89 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+function updateLanguageDropDown(xmlhttpresponseText)
+{
+  var languagenumber = 0;
+  if(xmlhttpresponseText=='no languages'){
+    console.log("no languages")
+    return;
+  }
+  languagesAvailable = JSON.parse(xmlhttpresponseText);
+  var htmlCode = "";
+  for(var i = 0;i<languagesAvailable.length;i++){
+    languagenumber = languagesAvailable.length;
+    var cur = languagesAvailable[i];
+    if(cur!="key_id"){
+      htmlCode+='<li><input name="language" type="checkbox" class="hiddenCheckBox" id="'+cur+'"><label class= "languagecolor" for="'+cur+'">'+cur+'</label></li>'
+      
+    }
+  }
+  document.getElementById("language_dropdown").innerHTML = htmlCode;
+  
+}
+function updateDynamicDropDowns(){
+  var bool1 = false;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("Get","languageDropDown",false);
+  xmlhttp.send();
+  var bool2 = false;
+  var xmlhttp2 = new XMLHttpRequest();
+  xmlhttp2.open("Get","versionDropDown",false);
+  xmlhttp2.send();
+  while(!bool1||!bool2){
+    if(!bool1&&xmlhttp.responseText){
+      updateLanguageDropDown(xmlhttp.responseText);
+      bool1 = true;
+    }
+    if(!bool2&&xmlhttp2.responseText){
+      updateVersionDropDown(xmlhttp2.responseText);
+      bool2 = true;
+    }
+  }
+}
+function updateVersionDropDown(xmlhttpresponseText){
+  if(xmlhttpresponseText=="no versions")return;
+  versionsAvailable = JSON.parse(xmlhttpresponseText);
+  var htmlCode = "";
+  var versionnumber = versionsAvailable.length;
+  for(var i = 0;i<versionsAvailable.length;i++){
+    var cur = versionsAvailable[i];
+    htmlCode+='<li><input type="checkbox" name="version" class="hiddenCheckBox" id="'+cur+'"><label class= "languagecolor" for="'+cur+'"> '+cur+' </label></li>';
+  }
+  document.getElementById("version_dropdown").innerHTML = htmlCode;
+}
+function buttonPressed()
+{
+selectedLanguages = [];
+selectedVersions = [];
+vrns = "";
+for(var i = 0 ;i<languagesAvailable.length;i++){
+  var cur = languagesAvailable[i];
+  if(document.getElementById(cur).checked){
+    selectedLanguages.push(cur);
+    if(lans!=""){
+      lans+=',';
+    }
+    lans+=cur;
+  }
+}
+for(var i = 0;i<versionsAvailable.length;i++){
+  var cur = versionsAvailable[i];
+  if(document.getElementById(cur).checked){
+    selectedVersions.push(cur);
+    if(vrns){
+      vrns+=',';
+    }
+    vrns+=cur;
+  }
+}
+if(lans)displayData();
+}
 </script>
      
 </body>
 </html> 
  
-
-
-
  
  
  
