@@ -53,7 +53,6 @@ p {
 input:-webkit-autofill {
 -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-
 @-webkit-keyframes passing-through {
   0% {
     opacity: 0;
@@ -224,7 +223,6 @@ input:-webkit-autofill {
     transform: scale(1); } }
 .dropzone, .dropzone * {
   box-sizing: border-box; }
-
 .dropzone {
   min-height: 150px;
   border: 2px solid rgba(0, 0, 0, 0.3);
@@ -450,39 +448,31 @@ input:-webkit-autofill {
     margin: 4px 2px;
     cursor: pointer;
 }
-
 .btn:focus, .upload-btn:focus{
   outline: 0 !important;
 }
-
 html,
 body {
   height: 100%;
   background-color: #369CF5;
 }
-
 body {
   text-align: center;
   font-family: 'Raleway', sans-serif;
 }
-
-
 #container {
     width: 100px;
     height: 100px;
 }
-
 #container > svg {
     width: 100%;
     display: block;
 }
-
 .upload-btn {
   color: #ffffff;
   background-color: #F89406;
   border: none;
 }
-
 .upload-btn:hover,
 .upload-btn:focus,
 .upload-btn:active,
@@ -491,8 +481,6 @@ body {
   background-color: #FA8900;
   border: none;
 }
-
-
     .progress {
       height: 10px;
       width: 400px;
@@ -501,10 +489,6 @@ body {
       height: 100%;
       display: block;
     }
-
-
-
-
 h1 {
     border-bottom: 3px solid #cc9900;
     color: #996600;
@@ -521,9 +505,6 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
     background-color: #ffffff;
 }
-
-
-
 ul {
   list-style: none;
   padding: 0;
@@ -563,7 +544,6 @@ ul:after {
   display: table; /* 2 */
 }
 ul:after { clear: both; }
-
 </style>
 
 <meta charset="utf-8">
@@ -572,7 +552,7 @@ ul:after { clear: both; }
 <title>Moxtra Localization</title>
 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href="css/styles.css" rel="stylesheet">
+<link href="public/html/css/styles.css" rel="stylesheet">
 
 </head>
 <body>
@@ -613,8 +593,6 @@ var gValue;
 var gVersion;
 function buttonPressed() {
   console.log('button pressed!');
-
-
   var radios = document.getElementsByName('platform');
   var value;
   var version = document.getElementById("version").value;
@@ -637,7 +615,6 @@ function buttonPressed() {
       }
   }
   console.log("it hit here");
-
       var xmlhttp = new XMLHttpRequest();
       var str = "fileinfo?version="+gVersion+",platform="+gValue
       xmlhttp.open("Get",str,false);
@@ -665,22 +642,16 @@ function buttonPressed() {
    <!-- 
     <div id="bartot" class="w3-progress-container">
   <div id="bar" class="w3-progressbar w3-green" style="width:0%">
-
     <div id="barnum" class="w3-center w3-text-white">0%</div>
   </div>
 </div>
-
     <button class="w3-btn w3-dark-grey" id="buttton" onclick="move()" >Show bar</button>
    --> 
     <script>
-
    
-
-
     function move() {
     $('#bartot').fadeToggle();
     $('#buttton').fadeToggle();
-
       
       var id = frame();
       function frame() {
@@ -695,8 +666,6 @@ function buttonPressed() {
       xmlhttp.send();
       while(!xmlhttp.responseText){}
       console.log(xmlhttp.responseText);
-
-
       var elem = document.getElementById("bar");
       var width = 1;
           elem.style.width = xmlhttp.responseText.substring(xmlhttp.responseText.indexOf(':')+1)+ '%';
@@ -719,13 +688,11 @@ function buttonPressed() {
 </div>
 
 <script>
-
 window.onload = function() {
       $('#buttton').toggle();
    $('#bartot').toggle();
   hideButton();
   Dropzone.options.url = "localhost/uploads";
-
   Dropzone.options.filedrop = {
     autoProcessQueue: false,
     uploadMultiple: true,
@@ -733,13 +700,11 @@ window.onload = function() {
     maxFiles: 100,
     init: function(){
       this.on("complete", function (file) {
-
         console.log("Uploads Complete!");
       });
     }
   }
 };
-
 </script>
 
 
@@ -752,10 +717,10 @@ window.onload = function() {
 <script>
 </script>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script src="javascripts/upload.js"></script>
+<script src="public/html/javascripts/upload.js"></script>
  <script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.6.0/dist/progressbar.js"></script>
   
-<script src="javascripts/dropzone.js"></script>
+<script src="public/html/javascripts/dropzone.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!--<iframe width="966" height="450" src="/public/html/transmitter.html"></iframe> iframe for the transmittor code. looks bad, use as last resort. -->
@@ -769,7 +734,7 @@ window.onload = function() {
           <ul id = "version_dropdown"></ul>
           <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
           <ul id = 'language_dropdown'></ul>
- <li><a class="enterbutton" onclick="DownloadAll()")Download</a></li> 
+ <li><a class="enterbutton" onclick="DownloadAll()">Download</a></li> 
       </div>
 
  
@@ -888,12 +853,7 @@ if(lans)displayData();
      
 </body>
 </html> 
- 
- 
- 
- 
- 
- 
 
- 
+
+
  
