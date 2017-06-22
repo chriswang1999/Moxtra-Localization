@@ -662,15 +662,16 @@ function buttonPressed() {
       </li>
     </ul>
   </div>
-    
+   <!-- 
     <div id="bartot" class="w3-progress-container">
   <div id="bar" class="w3-progressbar w3-green" style="width:0%">
+
     <div id="barnum" class="w3-center w3-text-white">0%</div>
   </div>
 </div>
 
     <button class="w3-btn w3-dark-grey" id="buttton" onclick="move()" >Show bar</button>
-
+   --> 
     <script>
 
    
@@ -768,6 +769,7 @@ window.onload = function() {
           <ul id = "version_dropdown"></ul>
           <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
           <ul id = 'language_dropdown'></ul>
+ <li><a class="enterbutton" onclick="DownloadAll()")Download</a></li> 
       </div>
 
  
@@ -778,6 +780,7 @@ window.onload = function() {
           <ul id = "version_dropdown"></ul>
           <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
           <ul id = 'language_dropdown'></ul>
+ <li><a class="enterbutton" onclick="buttonPressed2()">Submit</a></li>
       </div>
 
  
@@ -854,7 +857,7 @@ function updateVersionDropDown(xmlhttpresponseText){
   }
   document.getElementById("version_dropdown").innerHTML = htmlCode;
 }
-function buttonPressed()
+function buttonPressed2()
 {
 selectedLanguages = [];
 selectedVersions = [];
