@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
 <style>
-body {font-family: "Lato", sans-serif;}
+body {font-family: "Raleway", sans-serif;}
  
 /* Style the tab */
 div.tab {
@@ -783,7 +783,7 @@ function updateLanguageDropDown(xmlhttpresponseText)
     languagenumber = languagesAvailable.length;
     var cur = languagesAvailable[i];
     if(cur!="key_id"){
-      htmlCode+='<li><input name="language" type="checkbox" class="hiddenCheckBox" id="'+cur+'"><label class= "languagecolor" for="'+cur+'">'+cur+'</label></li>'
+      htmlCode+='<input name="language" type="checkbox" class="hiddenCheckBox" id="'+cur+'"><label class= "languagecolor" for="'+cur+'">'+cur+'</label><br>'
       
     }
   }
@@ -817,7 +817,7 @@ function updateVersionDropDown(xmlhttpresponseText){
   var versionnumber = versionsAvailable.length;
   for(var i = 0;i<versionsAvailable.length;i++){
     var cur = versionsAvailable[i];
-    htmlCode+='<li><input type="checkbox" name="version" class="hiddenCheckBox" id="'+cur+'"><label class= "languagecolor" for="'+cur+'"> '+cur+' </label></li>';
+    htmlCode+='<input type="checkbox" name="version" class="hiddenCheckBox" id="'+cur+'"><label class= "languagecolor" for="'+cur+'"> '+cur+' </label><br>';
   }
   document.getElementById("version_dropdown").innerHTML = htmlCode;
 }
