@@ -10,8 +10,17 @@
 <style>
 
 .downloadAll{
-  color:black;
-  float:left;
+  background-color: #77cd34;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
 }
 .downloadAll:hover{
   cursor: pointer;
@@ -70,7 +79,7 @@ div.tab button.active {
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
+    border:none;
     border-top: none;
 }
 p {
@@ -478,6 +487,7 @@ input:-webkit-autofill {
 .btn:focus, .upload-btn:focus{
   outline: 0 !important;
 }
+/*style of the page*/ 
 html,
 /*style for the body*/ 
 body {
@@ -485,7 +495,7 @@ body {
   background-color: #369CF5;
 }
 body {
-  text-align: center;
+  text-align: left;
   font-family: 'Raleway', sans-serif;
 }
 #container {
@@ -522,6 +532,11 @@ h1 {
     color: #996600;
     font-size: 30px;
 }
+pre { 
+  background-color: #369CF5;
+  border:none;
+  font-family:'Raleway', sans-serif;
+ }
 
 table, th , td {
     border: 1px solid grey;
@@ -535,30 +550,24 @@ table tr:nth-child(even) {
     background-color: #ffffff;
 }
 ul {
-  list-style: none;
   padding: 0;
-  margin: 0;
-  background: #ffffff;
+  margin:0;
+  list-style: none;
 }
 ul li {
-  display: block;
-  position: relative;
+  display:block;
+  position: fixed;
   float: left;
   background: #ffffff;
 }
 li ul { display: none; }
 ul li a {
-  display: block;
-  padding: 1em;
+ 
   text-decoration: none;
-  white-space: nowrap;
+ 
   color: #fff;
 }
 ul li a:hover { background: #369CF5; }
-li{
-  list-style-type:none;
-  vertical-align:left;
-}
 li:hover > ul {
   display: block;
   position: absolute;
@@ -764,37 +773,28 @@ window.onload = function() {
 <div id="Download" class="tabcontent">
           <h3>Please select the version and langauge you wish to view or download.</h3>
           <br>
-          <p class = "minititle"> Select Platform</p>
+          <p style="float:left" class ="minititle"> Select Versions</p><br>
+          <ul id = "version_dropdown"></ul>
+          <br>
+          <p style="float:left" class = "minititle"> Select Platform</p><br><br>
           <!-- <a onclick="downloadSelected()">Select Platform</a> 
-          hard coded platform due to there being a few options --> 
-          
-            <li>
-              <a class = "downloadAll">iOS</a>
-            </li>
-            <li>
-              <a class = "downloadAll">Android</a>
-            </li>
-            <li>
-              <a class = "downloadAll">Web</a>
-            </li>
-            <li>
-              <a class = "downloadAll">Admin</a>
-            </li>
-            <li>
-              <a class = "downloadAll">Mac</a>
-            </li>
-            <li>
-              <a class = "downloadAll">Windows</a>
-            </li>
-            <li>
-              <a class = "downloadTranslatingFile">Key_ID</a>
-            </li>
-          
+          hard coded platform due to there being a few options -->
+      <pre style="background-color: #ffffff;border:none;font-family:'Raleway',sans-serif">
+           <input style ="float:left" type="radio" name = "platform" id="iOS"><label style ="float:left" for="'+cur+'"> iOS</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Android"><label style ="float:left" for="'+cur+'"> Android</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Web"><label style ="float:left" for="'+cur+'"> Web</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Admin"><label style ="float:left" for="'+cur+'"> Admin</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Mac"><label style ="float:left" for="'+cur+'"> Mac</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Windows"><label style ="float:left" for="'+cur+'"> Windows</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="key_ID"><label style ="float:left" class = "downloadAllTranslatingFile" for="'+cur+'"> key_ID</label>
+
+      </pre>
+            <a style="float:left" class="downloadAll" onclick="downloadSelected()">Submit</a>
+
+
          <!-- <a class="toggle" onclick="toggleversion()">Select All Versions</
          a>        version checkbox, this would make it a link -->
-         <p class ="minititle"> Select Versions</p>
-          <ul id = "version_dropdown"></ul>
-          <button class="" onclick="downloadSelected()">Download</button>
+         
 
 </div>
 
@@ -806,7 +806,7 @@ window.onload = function() {
           <ul id = "version_dropdown"></ul>
           <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
           <ul id = 'language_dropdown'></ul>
- <li><a class="enterbutton" onclick="buttonPressed2()">Submit</a></li>
+ <li><a class="enterbutton" onclick="downloaddSelected()">Submit</a></li>
       </div>
 
  
@@ -872,20 +872,21 @@ function updateDynamicDropDowns(){
     }
   }
 }
-function updateVersionDropDown(xmlhttpresponseText){
+function updateVersionDropDown(xmlhttpresponseText){ //html for version dropdown
   if(xmlhttpresponseText=="no versions")return;
   versionsAvailable = JSON.parse(xmlhttpresponseText);
+  console.log(versionsAvailable)
   var htmlCode = "";
   var versionnumber = versionsAvailable.length;
 
   for(var i = 0;i<versionsAvailable.length;i++){
     var cur = versionsAvailable[i];
 
-    htmlCode+='<br><li><input type="checkbox" name="version" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+cur+'"> '+cur+' </label></li><br>';
+    htmlCode+='<br><li stlye="font-family:"Raleway"><input type="checkbox" name="version" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+ cur+'"> '+  cur+' </label></li><br>';
   }
   document.getElementById("version_dropdown").innerHTML = htmlCode;
 }
-function buttonPressed2()
+function buttonPressed2() //this is for the download tab
 {
 selectedLanguages = [];
 selectedVersions = [];
@@ -912,23 +913,30 @@ for(var i = 0;i<versionsAvailable.length;i++){
 }
 if(lans)displayData();
 }
+
 $(".downloadAll").click(function() {
     vrns = '';
     var xmlhttp = new XMLHttpRequest();
-    var platform = this.innerHTML.toLowerCase();
-    console.log("platform: "+platform);
+    var platform = "";
+    if(document.getElementById('iOS').checked){ var platform = "ios"; }
+    else if(document.getElementById('Android').checked){ var platform = "android"; }
+    else if(document.getElementById('Web').checked){ var platform = "web"; }
+    else if(document.getElementById('Admin').checked){ var platform = "admin"; }
+    else if(document.getElementById('Mac').checked){ var platform = "mac"; }
+    else if(document.getElementById('Windows').checked){ var platform = "Windows"; }
+    console.log("platform: "+platform); //internal checkbox, needs to change
     var versionsChecked = [];
-    for(var i = 0;i<versionsAvailiable.length;i++){
-      var cur = versionsAvailiable[i];
+    for(var i = 0;i<versionsAvailable.length;i++){
+      var cur = versionsAvailable[i];
       console.log("Cur is: "+cur);
       if(document.getElementById(cur).checked){
         versionsChecked.push(cur);
       }
     }
-    vrns = JSON.stringify(versionsChecked);
+    vrns = JSON.stringify(versionsChecked)
     if(versionsChecked.length==0){
       console.log("no version selected, going with all!");
-      vrns = JSON.stringify(versionsAvailiable);
+      vrns = JSON.stringify(versionsAvailable);
     }
     console.log("vrns: "+vrns);
     console.log("xmlhttp.open: "+'download?platform='+platform+'|languages=all|vrns='+vrns+'|');
@@ -942,8 +950,8 @@ $(".downloadAll").click(function() {
     var vrns;
     var xmlhttp = new XMLHttpRequest();
     var versionsChecked = [];
-    for(var i = 0;i<versionsAvailiable.length;i++){
-      var cur = versionsAvailiable[i];
+    for(var i = 0;i<versionsAvailable.length;i++){
+      var cur = versionsAvailable[i];
       if(document.getElementById(cur).checked){
         versionsChecked.push(cur);
       }
@@ -951,7 +959,7 @@ $(".downloadAll").click(function() {
     vrns = JSON.stringify(versionsChecked);
     if(versionsChecked.length==0){
       console.log("no version selected, going with all!");
-      vrns = JSON.stringify(versionsAvailiable);
+      vrns = JSON.stringify(versionsAvailable);
     }
     console.log("vrns: "+vrns);
     console.log("xmlhttp.open: "+'downloadTranslatingFile?'+vrns);
@@ -1029,10 +1037,11 @@ function downloadSelected(){
     if(document.getElementById("Admin").checked)plts+="admin_key,";
     if(document.getElementById("Windows").checked)plts+="windows_key,";
     if(document.getElementById("Mac").checked)plts+="mac_key,";
+
     if(plts)plts = plts.substring(0,plts.length-1);
     vrns = '';
-    for(var i = 0;i<versionsAvailiable.length;i++){
-      var cur = versionsAvailiable[i];
+    for(var i = 0;i<versionsAvailable.length;i++){
+      var cur = versionsAvailable[i];
       if(document.getElementById(cur).checked){
         selectedVersions.push(cur);
         if(!vrns||parseFloat(vrns)<parseFloat(cur)){
@@ -1042,7 +1051,7 @@ function downloadSelected(){
     }
     if(vrns == ''){
       console.log("no version selected, going with highest!");
-      vrns = versionsAvailiable.map(Number).reduce(function(a,b){return a>b?a:b });
+      vrns = versionsAvailable.map(Number).reduce(function(a,b){return a>b?a:b });
     }
     console.log("vrns: "+vrns+", plts: "+plts);
 
