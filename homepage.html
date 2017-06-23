@@ -19,6 +19,10 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 }
 .downloadAll:hover{
   cursor: pointer;
@@ -533,6 +537,10 @@ pre {
   border:none;
   font-family:'Raleway', sans-serif;
  }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 table, th , td {
     border: 1px solid grey;
     border-collapse: collapse;
@@ -603,13 +611,13 @@ ul:after { clear: both; }
 </div>
  
 <div id="Upload" class="tabcontent">
-<h3>Upload</h3>
+<h3>Please select a platfrom and version number to submit</h3>
 <!--code form the transmitter.html-->
 <form action="">
   <p>Platform</p>
-  <input type="radio" name="platform" value="iOS"> iOS<br>
-  <input type="radio" name="platform" value="Android"> Android<br>
-  <input type="radio" name="platform" value="Web"> Web<br>
+  <input type="radio" name="platform" value="iOS"> iOS Old<br>
+  <input type="radio" name="platform" value="Android"> Android Old<br>
+  <input type="radio" name="platform" value="Web"> Web Old<br>
   <input type="radio" name="platform" value="NewString"> New String<br>
   <p>Version Number</p>
   <input type="text" name="version" autocomplete="off" id = "version" value="">
@@ -719,9 +727,6 @@ function buttonPressed() {
 </script>
 
   </div>
- 
-
-
 </div>
 
 <script>
@@ -768,13 +773,19 @@ window.onload = function() {
 <div id="Download" class="tabcontent">
           <p style="font-size:20px;float:left;">Please select the version and langauge you wish to view or download.</p>
           <br><br><br>
+<<<<<<< HEAD
           <p style="float:left" class ="minititle"> Select Versions</p><br>
           <ul id = "version_dropdown"></ul>
+=======
+          <p style="float:left" class ="minititle"> Select Versions</p><br> <!-- dropdown version -->
+          <ul style="margin:10px" id = "version_dropdown"></ul>
+>>>>>>> origin/master
           <br>
           <p style="float:left" class = "minititle"> Select Platform</p><br><br>
           <!-- <a onclick="downloadSelected()">Select Platform</a> 
           hard coded platform due to there being a few options -->
       <pre style="background-color: #ffffff;border:none;font-family:'Raleway',sans-serif">
+<<<<<<< HEAD
            <input style ="float:left" type="radio" name = "platform" id="iOS"><label style ="float:left" for="'+cur+'"> iOS</label>
            <br><input style ="float:left" type="radio" name = "platform" id="Android"><label style ="float:left" for="'+cur+'"> Android</label>
            <br><input style ="float:left" type="radio" name = "platform" id="Web"><label style ="float:left" for="'+cur+'"> Web</label>
@@ -782,6 +793,15 @@ window.onload = function() {
            <br><input style ="float:left" type="radio" name = "platform" id="Mac"><label style ="float:left" for="'+cur+'"> Mac</label>
            <br><input style ="float:left" type="radio" name = "platform" id="Windows"><label style ="float:left" for="'+cur+'"> Windows</label>
            <br><input style ="float:left" type="radio" name = "platform" id="key_ID"><label style ="float:left" class = "downloadAllTranslatingFile" for="'+cur+'"> key_ID</label>
+=======
+           <input style ="float:left" type="radio" name = "platform" id="iOS"><label style ="float:left" for="'+cur+'">  iOS</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Android"><label style ="float:left" for="'+cur+'">  Android</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Web"><label style ="float:left" for="'+cur+'">  Web</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Admin"><label style ="float:left" for="'+cur+'">  Admin</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Mac"><label style ="float:left" for="'+cur+'">  Mac</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="Windows"><label style ="float:left" for="'+cur+'">  Windows</label>
+           <br><input style ="float:left" type="radio" name = "platform" id="key_ID"><label style ="float:left" class = "downloadAllTranslatingFile" for="'+cur+'">  key_ID</label>
+>>>>>>> origin/master
 
       </pre>
             <a style="float:left" class="downloadAll" onclick="downloadSelected()">Download</a>
@@ -802,7 +822,7 @@ window.onload = function() {
           <ul id = "version_dropdown"></ul>
           <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
           <ul id = 'language_dropdown'></ul>
- <li><a class="enterbutton" onclick="buttonPressed2()">Submit</a></li>
+ <li><a class="enterbutton" onclick="downloaddSelected()">Submit</a></li>
       </div>
 
  
@@ -876,7 +896,12 @@ function updateVersionDropDown(xmlhttpresponseText){ //html for version dropdown
   var versionnumber = versionsAvailable.length;
   for(var i = 0;i<versionsAvailable.length;i++){
     var cur = versionsAvailable[i];
+<<<<<<< HEAD
     htmlCode+='<br><li stlye="font-family:"Raleway", sans-serif><input type="checkbox" name="version" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+ cur+'"> '+  cur+' </label></li><br>';
+=======
+
+    htmlCode+='<br><li stlye="font-family:"Raleway", sans-serif><input type="checkbox" name="version" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+cur+'"> '+ "&nbsp" +"&nbsp"+cur+' </label></li><br>';
+>>>>>>> origin/master
   }
   document.getElementById("version_dropdown").innerHTML = htmlCode;
 }
@@ -907,6 +932,7 @@ for(var i = 0;i<versionsAvailable.length;i++){
 }
 if(lans)displayData();
 }
+<<<<<<< HEAD
 var responseText1;
 
 function displayData(){
@@ -1098,6 +1124,9 @@ function defineFunctions(){
 function findPlatform(str){
   return str.substring(str.lastIndexOf(' ')+1);
 }
+=======
+
+>>>>>>> origin/master
 $(".downloadAll").click(function() {
     vrns = '';
     var xmlhttp = new XMLHttpRequest();
@@ -1230,6 +1259,7 @@ function downloadSelected(){
     if(document.getElementById("Admin").checked)plts+="admin_key,";
     if(document.getElementById("Windows").checked)plts+="windows_key,";
     if(document.getElementById("Mac").checked)plts+="mac_key,";
+
     if(plts)plts = plts.substring(0,plts.length-1);
     vrns = '';
     for(var i = 0;i<versionsAvailable.length;i++){
