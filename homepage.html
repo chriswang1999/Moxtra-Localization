@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
 <style>
+
 .downloadAll{
   background-color: #f1f1f1;
     border: none;
@@ -19,10 +20,19 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
+  }
+.displaybutton{
+  background-color: #f1f1f1;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    float:left;
 }
 .downloadAll:hover{
   cursor: pointer;
@@ -35,14 +45,17 @@
  }
 .downloadTranslatingFile{
   color:black;
+
 }
 .downloadTranslatingFile:hover{
   cursor:pointer;
   background-color: #ccc;
+
 }
 .minititle{
   color: #337ab7;
   font-size:15px;
+  float:left;
 }
 body {font-family: "Lato", sans-serif;}
  
@@ -537,10 +550,7 @@ pre {
   border:none;
   font-family:'Raleway', sans-serif;
  }
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 table, th , td {
     border: 1px solid grey;
     border-collapse: collapse;
@@ -605,9 +615,9 @@ ul:after { clear: both; }
 <p>Moxtra Localization Tool</p>
  
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Upload')">Upload</button>
-  <button class="tablinks" onclick="openTab(event, 'Download')">Download</button>
-  <button class="tablinks" onclick="openTab(event, 'Display')" >Display</button>
+  <button id = "upload" class="tablinks" onclick="openTab(event, 'Upload')">Upload</button>
+  <button id = "download" class="tablinks" onclick="openTab(event, 'Download')">Download</button>
+  <button id = "display" class="tablinks" onclick="openTab(event, 'Display')">Display</button>
 </div>
  
 <div id="Upload" class="tabcontent">
@@ -773,27 +783,14 @@ window.onload = function() {
 <div id="Download" class="tabcontent">
           <p style="font-size:20px;float:left;">Please select the version and langauge you wish to view or download.</p>
           <br><br><br>
-<<<<<<< HEAD
-          <p style="float:left" class ="minititle"> Select Versions</p><br>
-          <ul id = "version_dropdown"></ul>
-=======
-          <p style="float:left" class ="minititle"> Select Versions</p><br> <!-- dropdown version -->
+          <!--dropdown menue-->
+          <p class ="minititle"> Select Versions</p><br> 
           <ul style="margin:10px" id = "version_dropdown"></ul>
->>>>>>> origin/master
           <br>
-          <p style="float:left" class = "minititle"> Select Platform</p><br><br>
+          <p class = "minititle"> Select Platform</p><br><br>
           <!-- <a onclick="downloadSelected()">Select Platform</a> 
           hard coded platform due to there being a few options -->
       <pre style="background-color: #ffffff;border:none;font-family:'Raleway',sans-serif">
-<<<<<<< HEAD
-           <input style ="float:left" type="radio" name = "platform" id="iOS"><label style ="float:left" for="'+cur+'"> iOS</label>
-           <br><input style ="float:left" type="radio" name = "platform" id="Android"><label style ="float:left" for="'+cur+'"> Android</label>
-           <br><input style ="float:left" type="radio" name = "platform" id="Web"><label style ="float:left" for="'+cur+'"> Web</label>
-           <br><input style ="float:left" type="radio" name = "platform" id="Admin"><label style ="float:left" for="'+cur+'"> Admin</label>
-           <br><input style ="float:left" type="radio" name = "platform" id="Mac"><label style ="float:left" for="'+cur+'"> Mac</label>
-           <br><input style ="float:left" type="radio" name = "platform" id="Windows"><label style ="float:left" for="'+cur+'"> Windows</label>
-           <br><input style ="float:left" type="radio" name = "platform" id="key_ID"><label style ="float:left" class = "downloadAllTranslatingFile" for="'+cur+'"> key_ID</label>
-=======
            <input style ="float:left" type="radio" name = "platform" id="iOS"><label style ="float:left" for="'+cur+'">  iOS</label>
            <br><input style ="float:left" type="radio" name = "platform" id="Android"><label style ="float:left" for="'+cur+'">  Android</label>
            <br><input style ="float:left" type="radio" name = "platform" id="Web"><label style ="float:left" for="'+cur+'">  Web</label>
@@ -801,29 +798,24 @@ window.onload = function() {
            <br><input style ="float:left" type="radio" name = "platform" id="Mac"><label style ="float:left" for="'+cur+'">  Mac</label>
            <br><input style ="float:left" type="radio" name = "platform" id="Windows"><label style ="float:left" for="'+cur+'">  Windows</label>
            <br><input style ="float:left" type="radio" name = "platform" id="key_ID"><label style ="float:left" class = "downloadAllTranslatingFile" for="'+cur+'">  key_ID</label>
->>>>>>> origin/master
 
       </pre>
             <a style="float:left" class="downloadAll" onclick="downloadSelected()">Download</a>
 
-
-         <!-- <a class="toggle" onclick="toggleversion()">Select All Versions</
-         a>        version checkbox, this would make it a link -->
-         
-
+        
 </div>
 
  
 
 <div id="Display" class="tabcontent">
-
           <h3>Please select the version and langauge you wish to view or download.</h3>
-          <a class="toggle" onclick="toggleversion()">Select All Versions</a>
-          <ul id = "version_dropdown"></ul>
-          <a class="toggle" onclick="togglelanguage()">Select All Languages</a>
-          <ul id = 'language_dropdown'></ul>
- <li><a class="enterbutton" onclick="downloaddSelected()">Submit</a></li>
-      </div>
+          <p class ="minititle"> Select Versions</p><br>
+          <ul style="margin:10px" id = "display_version_dropdown"></ul>
+          <p class = "minititle" onclick="togglelanguage()">Select All Languages</p><br>
+          <ul style="margin:10px" id = 'language_dropdown'></ul><br><br>
+
+ <a class="displaybutton" onclick="downloaddSelected()">Submit</a>
+     
 
  
 <script>
@@ -833,6 +825,8 @@ var versionsAvailable = [];
 var selectedVersions=[];
 var lans = "";
 var vrns = "";
+var currentactive = "";
+var versionarray = [];
 updateDynamicDropDowns();
 /* script for the tabs */
 function openTab(evt, tabName) {
@@ -847,6 +841,13 @@ function openTab(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+    console.log(    document.getElementById(tabName).style.display);
+    console.log(    evt.currentTarget.className );
+    currentactive = evt.currentTarget.id;
+    console.log(currentactive);
+    updateVersionDropDown(versionarray);
+
+
 }
 function updateLanguageDropDown(xmlhttpresponseText)
 {
@@ -861,7 +862,7 @@ function updateLanguageDropDown(xmlhttpresponseText)
     languagenumber = languagesAvailable.length;
     var cur = languagesAvailable[i];
     if(cur!="key_id"){
-      htmlCode+='<li><input name="language" type="checkbox" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+cur+'">'+cur+'</label></li>'
+      htmlCode+='<br><li><input name="language" type="checkbox" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+cur+'">'+ "&nbsp" + "&nbsp" +cur+'</label></li><br>'
       //language color doesn't exist
     }
   }
@@ -877,6 +878,7 @@ function updateDynamicDropDowns(){
   var xmlhttp2 = new XMLHttpRequest();
   xmlhttp2.open("Get","versionDropDown",false);
   xmlhttp2.send();
+  console.log("sentversion!");
   while(!bool1||!bool2){
     if(!bool1&&xmlhttp.responseText){
       updateLanguageDropDown(xmlhttp.responseText);
@@ -884,26 +886,30 @@ function updateDynamicDropDowns(){
     }
     if(!bool2&&xmlhttp2.responseText){
       updateVersionDropDown(xmlhttp2.responseText);
+      console.log(xmlhttp2.responseText);
       bool2 = true;
     }
   }
 }
 function updateVersionDropDown(xmlhttpresponseText){ //html for version dropdown
+  versionarray = xmlhttpresponseText;
   if(xmlhttpresponseText=="no versions")return;
   versionsAvailable = JSON.parse(xmlhttpresponseText);
-  console.log(versionsAvailable)
+  console.log(versionsAvailable);
   var htmlCode = "";
   var versionnumber = versionsAvailable.length;
+  console.log(versionnumber);
   for(var i = 0;i<versionsAvailable.length;i++){
     var cur = versionsAvailable[i];
-<<<<<<< HEAD
-    htmlCode+='<br><li stlye="font-family:"Raleway", sans-serif><input type="checkbox" name="version" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+ cur+'"> '+  cur+' </label></li><br>';
-=======
-
+    console.log(cur);
     htmlCode+='<br><li stlye="font-family:"Raleway", sans-serif><input type="checkbox" name="version" class="toggle" id="'+cur+'"><label class= "languagecolor" for="'+cur+'"> '+ "&nbsp" +"&nbsp"+cur+' </label></li><br>';
->>>>>>> origin/master
   }
-  document.getElementById("version_dropdown").innerHTML = htmlCode;
+
+  if (currentactive == "display"){
+    console.log(currentactive)
+      document.getElementById("display_version_dropdown").innerHTML = htmlCode;
+    }
+  else { document.getElementById("version_dropdown").innerHTML = htmlCode;}
 }
 function buttonPressed2() //this is for the download tab
 {
@@ -932,201 +938,7 @@ for(var i = 0;i<versionsAvailable.length;i++){
 }
 if(lans)displayData();
 }
-<<<<<<< HEAD
-var responseText1;
 
-function displayData(){
-  var xmlhttp = new XMLHttpRequest();
-  var plts = "";
-  if(document.getElementById("iOS").checked)plts+="ios_key,";
-  if(document.getElementById("Android").checked)plts+="android_key,";
-  if(document.getElementById("Web").checked)plts+="web_key,";
-  if(document.getElementById("Admin").checked)plts+="admin_key,";
-  if(document.getElementById("Windows").checked)plts+="windows_key,";
-  if(document.getElementById("Mac").checked)plts+="mac_key,";
-  if(plts)plts = plts.substring(0,plts.length-1);
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("Get","list?lans=key_num,android_key,web_key,ios_key,key_id,admin_key,mac_key,windows_key,version,comments,"+lans+"|vrns="+vrns+"|plts="+plts+"|",false);
-  xmlhttp.send();
-  while(!xmlhttp.responseText){}
-  responseText1 = xmlhttp.responseText;
-  constructTable(responseText1);
-}
-
-function constructTable(response,search) {
-  var arr = JSON.parse(response);
-  var out = "<table width = \""+((search?languagesAvailiable.length:selectedLanguages.length)+10)*100+"\">";
-  out+="<tr><td>key_num</td><td>admin_key</td><td>android_key</td><td>ios_key</td><td>mac_key</td><td>web_key</td><td>windows_key</td><td>key_id</td><td>version</td>";
-  var temp = "";
-  if(!search){
-    for(var i = 0;i<lans.length;i++){
-      var cur = lans.charAt(i);
-      if(cur==','){
-        out+='<td><a class="languagedeleter">'+temp+'</a></div></td>';
-        temp = "";
-      }else{
-          temp+=cur;
-      }
-    }
-    if(temp){
-      out+='<td><a class="languagedeleter">'+temp+'</a></div></td>';
-    }
-  }else{
-    for(var i = 0;i<languagesAvailiable.length;i++){
-      out+='<td><a class="languagedeleter">'+languagesAvailiable[i]+'</a></div></td>';
-    }
-  }
-  temp = "";
-  out+='<td>comments</td>';
-  out+="</tr>"
-  for(var i = 0; i < arr.length; i++) {
-    out+="<tr>"
-    out+='<td><label><input type="checkbox" name="key_numCheckBoxes" key_num='+(arr[i].key_num)+'>'+(arr[i].key_num)+'</label></td>'
-    //out+='<td>'+(arr[i].key_num)+'</td>';
-    out+='<td>'+(arr[i].admin_key?arr[i].admin_key:'<div><br></div>')+'</td>';
-    out+='<td>'+(arr[i].android_key?arr[i].android_key:'<div><br></div>')+'</td>';
-    out+='<td>'+(arr[i].ios_key?arr[i].ios_key:'<div><br></div>'+'</td>');
-    out+='<td>'+(arr[i].mac_key?arr[i].mac_key:'<div><br></div>'+'</td>');
-    out+='<td>'+(arr[i].web_key?arr[i].web_key:'<div><br></div>'+'</td>');
-    out+='<td>'+(arr[i].windows_key?arr[i].windows_key:'<div><br></div>'+'</td>');
-    out+='<td class="keydeleter" id="'+("key_numID:"+arr[i].key_num)+'">'+(arr[i].key_id?arr[i].key_id:'<div><br></div>'+'</td>');
-    out+='<td>'+(arr[i].version+'</td>');
-    if(search){
-      for(var j = 0;j<languagesAvailiable.length;j++){
-        var cur = arr[i][languagesAvailiable[j]];
-        out+='<td align="left"><div id="test" ondblclick="this.contentEditable=true;this.focus();" onblur="this.contentEditable=false;" contenteditable="false">' +(cur?cur:'<div><br></div>')+'</td>';
-      }
-    }else{
-      for(var j = 0;j<selectedLanguages.length;j++){
-        var cur = arr[i][selectedLanguages[j]];
-        out+='<td align="left"><div id="test" ondblclick="this.contentEditable=true;this.focus();" onblur="this.contentEditable=false;" contenteditable="false">' +(cur?cur:'<div><br></div>')+'</td>';
-      }
-    }
-    out+='<td align="left"><div id="test" ondblclick="this.contentEditable=true;this.focus();" onblur="this.contentEditable=false;" contenteditable="false">' +(arr[i].comments?arr[i].comments:'<div><br></div>')+'</td>';
-    out+="</tr>";
-  }
-  out += "</table>";
-  document.getElementById("table").innerHTML = out;
-  lans = "";
-  defineFunctions();
-}
-
-function updateTable(str){
-  console.log("given str: "+str);
-  var table = document.getElementById("table").innerHTML;
-  var curIndex = table.indexOf('<td><label><input type="checkbox" name="key_numCheckBoxes">'+str+'</label></td>');
-  var start = table.lastIndexOf("<tr>",curIndex);
-  var end = table.indexOf("</tr>",curIndex);
-  console.log("I deleted:\n"+table.substring(start,end));
-  var newTable = table.substring(0,start)+table.substring(end);;
-  document.getElementById("table").innerHTML = newTable;
-  defineFunctions();
-}
-function getLanguage(str){
-  var table = document.getElementById("table").innerHTML;
-  var curIndex = table.indexOf(str);
-  var start = table.lastIndexOf("<tr>",curIndex)
-  var useful = table.substring(start,curIndex);
-  var num = 0;
-  for(var i = 0;i<useful.length-5;i++){
-    if(useful.substring(i,i+5)=="</td>"){
-      num++;
-    }
-  }
-  console.log(num);
-  if(num-8==selectedLanguages.length){
-    return 'comments';
-  }else{
-    return selectedLanguages[num-8];
-  }
-}
-function getIndex(str){
-  var table = document.getElementById("table").innerHTML;
-  var curIndex = table.indexOf(str);
-  var start = table.lastIndexOf("<tr>",curIndex)
-  var useful = table.substring(start,curIndex);
-  return useful.substring(useful.indexOf('<td>')+4,useful.indexOf('</td>'));
-}
-function defineFunctions(){
-
-  $(".keydeleter").click(function() {
-    var item = $(this);
-    var idString = item.attr('id');
-    var id = idString.substring(idString.indexOf(':')+1)
-    if (confirm('Are you sure you want to delete the row at index '+id+' from the database?')) {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.open("Get","delete?key_num="+id,false);
-      xmlhttp.send();
-      while(!xmlhttp.responseText){}
-      updateTable(id);
-      console.log(xmlhttp.responseText);
-    }
-  });
-
-  $(".languagedeleter").click(function() {
-  console.log("Attemped delete");
-  var lanString = $(this).html();
-  if (confirm('Are you sure you want to delete '+lanString+' from the database?')) {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("Get","removeColumn?lan="+lanString,false);
-  xmlhttp.send();
-  selectedLanguages.splice(selectedLanguages.indexOf(lanString),1);
-  lans = "";
-  for(var i = 0;i<selectedLanguages.length;i++){
-  console.log("added Stuff");
-  lans+=selectedLanguages[i];
-  if(i<selectedLanguages.length-1){
-  lans+=',';
-  }
-  }
-  constructTable(responseText1);
-  while(!xmlhttp.responseText){}
-  console.log(xmlhttp.responseText);
-  if(/*xmlhttp.responseText == (lanString+" has been deleted!"*/true){ 
-    updateDynamicDropDowns();
-}
-}
-});
-  $('[contenteditable]').on('focus', function() {
-    var $this = $(this);
-    $this.data('before', $this.html());
-    return $this;
-  }).on('blur', function() {
-    var $this = $(this);
-    if ($this.data('before') !== $this.html()) {
-      $this.trigger('change');
-      var xmlhttp = new XMLHttpRequest();
-      var language = getLanguage('<td align="left"><div id="test" ondblclick="this.contentEditable=true;this.focus();" onblur="this.contentEditable=false;" contenteditable="false">'+$this.html()+'</div></td>');
-      var index = getIndex('<td align="left"><div id="test" ondblclick="this.contentEditable=true;this.focus();" onblur="this.contentEditable=false;" contenteditable="false">'+$this.html()+'</div></td>');
-      console.log(index);
-      var updatedValue = "";
-      if($this.html().indexOf('"')!=-1){
-        for(var i =0;i<$this.html().length;i++){
-          if($this.html().charAt(i)=='"'){
-            updatedValue+='\\';
-          }
-          updatedValue+=$this.html().charAt(i);
-        }
-      }else{
-        updatedValue = $this.html();
-      }
-      var startingIndex = index.indexOf('key_num="')+9;
-      var endingIndex = index.indexOf('"',startingIndex);
-      index = index.substring(startingIndex,endingIndex);
-      xmlhttp.open("Get","update?lan="+language+"|value="+index+"|updatedvalue="+updatedValue,false);
-      xmlhttp.send();
-      while(!xmlhttp.responseText){}
-      console.log(xmlhttp.responseText);
-    }
-    return $this;
-  });
-}
-function findPlatform(str){
-  return str.substring(str.lastIndexOf(' ')+1);
-}
-=======
-
->>>>>>> origin/master
 $(".downloadAll").click(function() {
     vrns = '';
     var xmlhttp = new XMLHttpRequest();
@@ -1182,6 +994,7 @@ $(".downloadAll").click(function() {
     console.log(xmlhttp.responseText);
     window.location.assign(xmlhttp.responseText);
   });
+
     $(".downloadOne").click(function() {
     var xmlhttp = new XMLHttpRequest();
     var htmlString1 = $(this).html();
@@ -1194,17 +1007,6 @@ $(".downloadAll").click(function() {
     while(!xmlhttp.responseText){}
     console.log(xmlhttp.responseText);
     window.location.assign(xmlhttp.responseText);
-  });
-    $('#search').blur(function() {
-    var val = $(this).val();
-    $(".searchButton").click(function(){
-    console.log("search!");
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("Get","search?val="+val,false);
-    xmlhttp.send();
-    while(!xmlhttp.responseText){}
-    constructTable(xmlhttp.responseText,true);
-    });
   });
 function toggleversion(source) {
   checkboxes = document.getElementsByName('version');
@@ -1222,6 +1024,7 @@ var checkednumber = 0;
       console.log("check!");
       checkboxes[i].checked = true;
       console.log(checkboxes[i]);
+
       var that =checkboxes[i];
       $(checkboxes[i]).parent().css("background-color", function() {
       return that.checked ? "#8cd45c" : "";
@@ -1276,6 +1079,7 @@ function downloadSelected(){
       vrns = versionsAvailable.map(Number).reduce(function(a,b){return a>b?a:b });
     }
     console.log("vrns: "+vrns+", plts: "+plts);
+
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("Get",'selectiveDownload?plts='+plts+'|vrns='+vrns+"|selected="+JSON.stringify(selected),false);
     xmlhttp.send();
@@ -1285,19 +1089,18 @@ function downloadSelected(){
       window.open(arrOfDownloads[i]);
     }
 }
-document.getElementById("search").onkeydown = function(event){
-  if(event.keyCode==13){
-    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-    console.log("search!");
-    console.log(val);
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("Get","search?val="+val,false);
-    xmlhttp.send();
-    while(!xmlhttp.responseText){}
-    constructTable(xmlhttp.responseText,true);
-  }
-}
 </script>
      
 </body>
 </html> 
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
